@@ -1,0 +1,26 @@
+Python 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+>>> 
+... quantity = int(input("Production quantity: "))
+... material = float(input("Material cost per unit: "))
+... wastage_percent = float(input("Wastage percentage: "))
+... labour = float(input("Total labour cost: "))
+... machine = float(input("Machine cost: "))
+... selling_price = float(input("Selling price per unit: "))
+... target = float(input("Required profit: "))
+... 
+... material_cost = quantity * material
+... wastage = material_cost * wastage_percent / 100
+... 
+... total_cost = material_cost + wastage + labour + machine
+... revenue = quantity * selling_price
+... profit = revenue - total_cost
+... 
+... print("\nTotal cost: Rs.", round(total_cost, 2))
+... print("Sales revenue: Rs.", round(revenue, 2))
+... print("Profit/Loss: Rs.", round(profit, 2))
+... 
+... if profit >= target:
+...     print("Profit target achieved")
+... else:
+...     print("Profit target not achieved")

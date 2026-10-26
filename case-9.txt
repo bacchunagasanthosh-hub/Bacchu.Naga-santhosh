@@ -1,0 +1,37 @@
+Python 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+>>> 
+... budget = float(input("Travel budget in Rs.: "))
+... 
+... rates = {
+...     "Hotel": 83,
+...     "Food": 90,
+...     "Transport": 105
+... }
+... 
+... total = 0
+... expenses = {}
+... 
+... for category, rate in rates.items():
+...     amount = float(input(category + " expense in foreign currency: "))
+...     converted = amount * rate
+...     fee = converted * 0.02
+...     final_amount = converted + fee
+... 
+...     expenses[category] = final_amount
+...     total += final_amount
+... 
+... print("\n--- TRAVEL EXPENSE REPORT ---")
+... 
+... for category, amount in expenses.items():
+...     print(category, ": Rs.", round(amount, 2))
+... 
+... largest = max(expenses, key=expenses.get)
+... 
+... print("Total spending: Rs.", round(total, 2))
+... print("Largest expense:", largest)
+... 
+... if total > budget:
+...     print("Budget exceeded by Rs.", round(total - budget, 2))
+... else:
+...     print("Remaining budget: Rs.", round(budget - total, 2))

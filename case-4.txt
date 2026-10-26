@@ -1,0 +1,30 @@
+Python 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+>>> 
+... basic = float(input("Basic salary: "))
+... allowances = float(input("Allowances: "))
+... hours = float(input("Overtime hours: "))
+... incentive = float(input("Incentive: "))
+... 
+... overtime = hours * 200
+... gross = basic + allowances + overtime + incentive
+... 
+... if gross <= 20000:
+...     tax = gross * 0.05
+... elif gross <= 40000:
+...     tax = 20000 * 0.05 + (gross - 20000) * 0.10
+... else:
+...     tax = (20000 * 0.05 + 20000 * 0.10
+...            + (gross - 40000) * 0.20)
+... 
+... deduction = tax
+... net = gross - deduction
+... 
+... print("\n--- SALARY STATEMENT ---")
+... print("Basic salary: Rs.", round(basic, 2))
+... print("Allowances: Rs.", round(allowances, 2))
+... print("Overtime pay: Rs.", round(overtime, 2))
+... print("Incentive: Rs.", round(incentive, 2))
+... print("Gross salary: Rs.", round(gross, 2))
+... print("Tax deduction: Rs.", round(deduction, 2))
+... print("Net salary: Rs.", round(net, 2))

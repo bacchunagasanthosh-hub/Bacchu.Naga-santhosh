@@ -1,0 +1,28 @@
+
+usage = float(input("Required data in GB: "))
+days = int(input("Required validity in days: "))
+budget = float(input("Budget in Rs.: "))
+
+plans = [
+    ("Basic", 199, 2, 28, 50),
+    ("Smart", 299, 10, 28, 20),
+    ("Premium", 399, 20, 56, 10)
+]
+
+best_plan = None
+best_cost = float("inf")
+
+for name, price, data, validity, extra_rate in plans:
+    if validity >= days:
+        excess = max(0, usage - data)
+        cost = price + excess * extra_rate
+
+        if cost <= budget and cost < best_cost:
+            best_cost = cost
+            best_plan = name
+
+if best_plan is None:
+    print("No eligible plan found")
+else:
+    print("Best plan:", best_plan)
+    print("Total cost: Rs.", round(best_cost, 2))

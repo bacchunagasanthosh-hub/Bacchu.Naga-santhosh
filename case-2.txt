@@ -1,0 +1,41 @@
+Python 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+>>> 
+... def calculate_bill(units):
+...     if units <= 100:
+...         energy = units * 2
+...     elif units <= 200:
+...         energy = 100 * 2 + (units - 100) * 3
+...     else:
+...         energy = 100 * 2 + 100 * 3 + (units - 200) * 5
+... 
+...     bill = energy + 50
+... 
+...     if bill > 500:
+...         bill += bill * 0.05
+... 
+...     if units <= 50:
+...         bill -= 20
+... 
+...     return bill
+... 
+... 
+... month1 = float(input("Units in month 1: "))
+... month2 = float(input("Units in month 2: "))
+... 
+... bill1 = calculate_bill(month1)
+... bill2 = calculate_bill(month2)
+... 
+... print("Month 1 bill: Rs.", round(bill1, 2))
+... print("Month 2 bill: Rs.", round(bill2, 2))
+... 
+... if bill2 > bill1:
+...     increase = (bill2 - bill1) / bill1 * 100
+...     print("Increase:", round(increase, 2), "%")
+... 
+...     if increase > 30:
+...         print("Unusual increase detected")
+...     else:
+...         print("Normal increase")
+... else:
+...     print("No increase in the latest bill")

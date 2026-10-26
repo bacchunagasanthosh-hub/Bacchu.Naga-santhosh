@@ -1,0 +1,38 @@
+Python 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+>>> 
+... import math
+... 
+... venue = float(input("Venue cost: "))
+... equipment = float(input("Equipment cost: "))
+... catering = float(input("Catering cost per person: "))
+... transport = float(input("Transport cost: "))
+... certificate = float(input("Certificate cost per person: "))
+... sponsorship = float(input("Sponsorship amount: "))
+... participants = int(input("Expected participants: "))
+... fee = float(input("Registration fee per person: "))
+... 
+... fixed_cost = venue + equipment + transport
+... variable_cost = participants * (catering + certificate)
+... total_cost = fixed_cost + variable_cost
+... 
+... shortfall = max(0, total_cost - sponsorship)
+... contribution = max(0, shortfall / participants) if participants > 0 else 0
+... 
+... profit_per_person = fee - catering - certificate
+... remaining = sponsorship - fixed_cost
+... 
+... print("\n--- EVENT BUDGET ---")
+... print("Total cost: Rs.", round(total_cost, 2))
+... print("Sponsorship: Rs.", round(sponsorship, 2))
+... print("Funding shortfall: Rs.", round(shortfall, 2))
+... print("Contribution per participant: Rs.",
+...       round(contribution, 2))
+... 
+... if profit_per_person > 0:
+...     minimum = max(0, math.ceil(
+...         (fixed_cost - sponsorship) / profit_per_person
+...     ))
+...     print("Minimum registrations to break even:", minimum)
+... else:
+...     print("Break-even is not possible at this registration fee")

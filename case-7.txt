@@ -1,0 +1,42 @@
+Python 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+
+... n = int(input("Number of products: "))
+... subtotal = 0
+... tax_total = 0
+... 
+... for i in range(n):
+...     print("\nProduct", i + 1)
+...     name = input("Product name: ")
+...     category = input("Category (food/electronics/other): ").lower()
+...     price = float(input("Price: "))
+...     quantity = int(input("Quantity: "))
+... 
+...     amount = price * quantity
+... 
+...     if category == "food":
+...         tax_rate = 0.05
+...     elif category == "electronics":
+...         tax_rate = 0.18
+...     else:
+...         tax_rate = 0.12
+... 
+...     tax = amount * tax_rate
+...     subtotal += amount
+...     tax_total += tax
+... 
+...     print(name, "Amount:", round(amount, 2),
+...           "Tax:", round(tax, 2))
+... 
+... if subtotal >= 2000:
+...     discount = min(subtotal * 0.10, 500)
+... else:
+...     discount = 0
+... 
+... total = subtotal + tax_total - discount
+... 
+... print("\n--- FINAL INVOICE ---")
+... print("Subtotal: Rs.", round(subtotal, 2))
+... print("Total tax: Rs.", round(tax_total, 2))
+... print("Discount: Rs.", round(discount, 2))
+... print("Final amount: Rs.", round(total, 2))

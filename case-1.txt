@@ -1,0 +1,32 @@
+Python 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+>>> 
+... students = []
+... 
+... n = int(input("Enter number of students: "))
+... 
+... for i in range(n):
+...     print("\nStudent", i + 1)
+...     name = input("Name: ")
+...     aggregate = float(input("Aggregate marks: "))
+...     subject = float(input("Lowest subject mark: "))
+...     attendance = float(input("Attendance percentage: "))
+...     income = float(input("Annual family income: "))
+... 
+...     if (aggregate >= 75 and subject >= 60
+...             and attendance >= 75 and income <= 300000):
+...         students.append(
+...             (name, aggregate, attendance, income)
+...         )
+... 
+... students.sort(key=lambda s: (-s[1], -s[2], s[3]))
+... 
+... print("\nEligible Scholarship Students")
+... if not students:
+...     print("No eligible students")
+... else:
+...     for rank, student in enumerate(students, start=1):
+...         print(rank, student[0],
+...               "Marks:", student[1],
+...               "Attendance:", student[2],
+...               "Income:", student[3])
